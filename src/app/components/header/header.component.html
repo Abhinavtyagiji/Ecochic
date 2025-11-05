@@ -1,0 +1,16 @@
+  <header>
+    <div class="right-side" routerLink="/" routerLinkActive="active">
+      <img [src]="images.logo" alt="" />
+    </div>
+    <div class="left-side">
+      <div class="nav"  routerLink="/" routerLinkActive="active">
+        <span >Home</span>
+      </div>
+      <button class="cart-btn" routerLink="cart" >
+      <div class="cart-icon">
+          <div class="pop-up">{{cartService.cartCount() }}</div>
+        <img [src]="images.CartLogo" alt="" />
+      </div>
+      </button>
+    </div>
+  </header>

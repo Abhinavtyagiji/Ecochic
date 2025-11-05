@@ -1,0 +1,42 @@
+@if (itemCount()) {
+
+<div class="cart-container">
+  <div class="left-side">
+    @for (product of cartItems(); track $index) {
+    <div class="item-card">
+      <img
+        [src]="product.image"
+        alt="{{ product.title }}"
+        class="product-img"
+      />
+      <div class="text-sec">
+        <h4>{{ product.title }}</h4>
+        <p>{{ product.description }}</p>
+        <div class="price-delete">
+          <h6>${{ product.price }}</h6>
+          <div class="img" (click)="removeFromCart(product)">
+            <img [src]="images.DeleteLogo" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <div class="right-side">
+    <span class="cart">Your Cart</span>
+    <span class="summary">SUMMARY</span>
+    <span class="items">Total Items: {{ itemCount() }}</span>
+    <span class="amount">Total Amount: ${{ totalAmount() }}</span>
+    <button >Check Out</button>
+  </div>
+</div>
+} @else {
+    <div class="not-selected-pro">
+        <h2>Your cart is empty!</h2>
+        <button routerLink="/" >
+            <span>
+                Shop Now
+            </span>
+        </button>
+    </div>
+}

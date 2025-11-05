@@ -1,0 +1,27 @@
+<main>
+  <div class="card">
+    @for (product of productApiData; track $index) {
+    <div class="card-item">
+      <div class="top-item">
+        <div class="prod-name">{{ product.title }}</div>
+        <div class="prod-desc">{{ product.description }}</div>
+        <div class="product-img">
+          <img [src]="product.image" alt="" />
+        </div>
+      </div>
+      <div class="bottom-item">
+        <div class="price">${{ product.price }}</div>
+        <div class="cart-opt">
+          <button (click)="addToCart($index)">
+            @if(cartDetail[$index]) {
+             REMOVE
+            } @else {
+              ADD TO CART
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</main>
